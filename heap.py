@@ -3,12 +3,14 @@ class Heap:
         self._heap = []
         self._size = 0
 
-    @staticmethod
-    def swap(_heap, i, j):
+    def __eq__(self, other):
+        return self._heap == other._heap
+
+    def swap(self, i, j):
         """Swap child element with parent element."""
-        tmp = _heap[i]
-        _heap[i] = _heap[j]
-        _heap[j] = tmp
+        tmp = self._heap[i]
+        self._heap[i] = self._heap[j]
+        self._heap[j] = tmp
 
     def set_heap_size(self, size):
         """Set heap size."""
