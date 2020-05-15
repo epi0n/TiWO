@@ -15,3 +15,7 @@ class Heap:
     def set_heap_size(self, size):
         """Set heap size."""
         self._size = size
+
+    def get_heap_size(self):
+        """Returns heap size."""
+        return self._size
