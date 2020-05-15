@@ -5,4 +5,6 @@ class Heap:
     @staticmethod
     def swap(_heap, i, j):
         """Swap child element with parent element."""
-        pass
+        tmp = _heap[i]
+        _heap[i] = _heap[j]
+        _heap[j] = tmp
