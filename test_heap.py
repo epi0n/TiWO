@@ -23,6 +23,12 @@ test_set_heap_size_data = {
         'expected_heap': tmp_expected_heap
     }
 }
+test_get_heap_size_data = {
+    0: {
+        'input_heap': tmp_expected_heap,
+        'expected_heap_size': 5
+    }
+}
 
 
 @pytest.mark.parametrize("input_heap,i,j,expected_heap", [
@@ -40,3 +46,9 @@ def test_set_heap_size(input_heap, size, expected_heap):
     input_heap.set_heap_size(size)
     assert input_heap._size == expected_heap._size
 
+
+@pytest.mark.parametrize("input_heap,expected_heap_size", [
+    (test_get_heap_size_data[0]['input_heap'], test_get_heap_size_data[0]['expected_heap_size']),
+])
+def test_get_heap_size(input_heap, expected_heap_size):
+    assert input_heap.get_heap_size() == expected_heap_size
