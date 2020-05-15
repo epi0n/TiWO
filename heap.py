@@ -18,4 +18,4 @@ class Heap:
 
     def get_heap_size(self):
         """Returns heap size."""
-        return self._size
+        return self._size if self._size >= 0 else 0
