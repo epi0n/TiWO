@@ -10,7 +10,6 @@ class Heap:
         _heap[i] = _heap[j]
         _heap[j] = tmp
 
-    @staticmethod
-    def set_heap_size(_heap):
+    def set_heap_size(self, size):
         """Set heap size."""
-        pass
+        self._size = size

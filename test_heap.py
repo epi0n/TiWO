@@ -35,3 +35,4 @@ def test_swap(input_heap, i, j, expected_heap):
 def test_set_heap_size(input_heap, size, expected_heap):
     input_heap.set_heap_size(size)
     assert input_heap._size == expected_heap._size
+
