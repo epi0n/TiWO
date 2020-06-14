@@ -35,7 +35,7 @@ test_get_heap_size_data = {
     (test_swap_data[0]['input_heap'], test_swap_data[0]['i'], test_swap_data[0]['j'], test_swap_data[0]['expected_heap']),
 ])
 def test_swap(input_heap, i, j, expected_heap):
-    input_heap.swap(i, j)
+    input_heap._swap(i, j)
     assert input_heap == expected_heap
 
 
@@ -52,3 +52,19 @@ def test_set_heap_size(input_heap, size, expected_heap):
 ])
 def test_get_heap_size(input_heap, expected_heap_size):
     assert input_heap.get_heap_size() == expected_heap_size
+
+
+def test_heap_up():
+    raise NotImplementedError
+
+
+def test_heap_down():
+    raise NotImplementedError
+
+
+def test_insert():
+    raise NotImplementedError
+
+
+def test_pop():
+    raise NotImplementedError
