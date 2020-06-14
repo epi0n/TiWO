@@ -39,6 +39,10 @@ class Heap:
                         self._swap(current_index, left_child)
                         self._heap_down(left_child)
 
+    def _add_node(self, node):
+        self._heap.append(node)
+        self._size += 1
+
     def create_heap(self, input_heap):
         self._heap = input_heap
         self._size = len(input_heap)
@@ -52,8 +56,7 @@ class Heap:
         return self._size if self._size >= 0 else 0
 
     def insert(self, node):
-        self._heap.append(node)
-        self._size += 1
+        self._add_node(node)
         self._heap_up(self.get_heap_size() - 1)
         self._heap_down(0)
 
