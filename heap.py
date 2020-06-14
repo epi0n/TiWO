@@ -43,6 +43,11 @@ class Heap:
         self._heap.append(node)
         self._size += 1
 
+    def _remove_node(self):
+        self._heap[0] = self._heap[self.get_heap_size() - 1]
+        self._heap.pop()
+        self._size -= 1
+
     def create_heap(self, input_heap):
         self._heap = input_heap
         self._size = len(input_heap)
@@ -61,4 +66,6 @@ class Heap:
         self._heap_down(0)
 
     def pop(self):
-        raise NotImplementedError
+        self._remove_node()
+        self._heap_down(0)
+
