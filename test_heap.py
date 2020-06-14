@@ -29,6 +29,10 @@ test_get_heap_size_data = {
         'expected_heap_size': 5
     }
 }
+heap_test_heap_up = Heap()
+heap_test_heap_up.create_heap([1, 2, 3, 4, 5])
+expected_heap_test_heap_up = Heap()
+expected_heap_test_heap_up.create_heap([5, 1, 3, 4, 2])
 
 
 @pytest.mark.parametrize("input_heap,i,j,expected_heap", [
@@ -54,10 +58,14 @@ def test_get_heap_size(input_heap, expected_heap_size):
     assert input_heap.get_heap_size() == expected_heap_size
 
 
-def test_heap_up():
-    raise NotImplementedError
+@pytest.mark.parametrize("input_heap,expected_heap,example_index", [
+    (heap_test_heap_up, expected_heap_test_heap_up,  expected_heap_test_heap_up.get_heap_size() - 1),
+])
+def test_heap_up(input_heap, expected_heap, example_index):
+    input_heap._heap_up(example_index)
+    assert input_heap == expected_heap
 
-
+'''
 def test_heap_down():
     raise NotImplementedError
 
@@ -68,3 +76,4 @@ def test_insert():
 
 def test_pop():
     raise NotImplementedError
+'''

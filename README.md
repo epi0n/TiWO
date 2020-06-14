@@ -1,1 +1,1 @@
-This is an example implementation of a heap data structure written in TDD (Test Driven Development).
+This is an example implementation of a max heap data structure written in TDD (Test Driven Development).

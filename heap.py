@@ -1,4 +1,5 @@
 class Heap:
+    """Heap data structure. Implemented as a max heap - max element at the top. """
     def __init__(self):
         self._heap = []
         self._size = 0
@@ -12,13 +13,17 @@ class Heap:
         self._heap[i] = self._heap[j]
         self._heap[j] = tmp
 
-    def _heap_up(self, i, j):
+    def _heap_up(self, i):
         """Move node up if better than parent node."""
         raise NotImplementedError
 
-    def _heap_down(self, i, j):
+    def _heap_down(self, i):
         """Move node down if worse than child node."""
         raise NotImplementedError
+
+    def create_heap(self, input_heap):
+        self._heap = input_heap
+        self._size = len(input_heap)
 
     def set_heap_size(self, size):
         """Set heap size."""
