@@ -1,6 +1,8 @@
 import random
 import time
 
+import pytest
+
 from heap import Heap
 
 
@@ -61,7 +63,7 @@ def advanced_example():
 
 
 def print_tests():
-    pass
+    pytest.main(["-s", "test_heap.py", "-vv"])
 
 
 def main():
@@ -81,7 +83,7 @@ def main():
         elif _input == '2':
             advanced_example()
         elif _input == '3':
-            pass
+            print_tests()
         elif _input == '4':
             exit()
         else:
