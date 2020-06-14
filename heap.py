@@ -40,15 +40,18 @@ class Heap:
                         self._heap_down(left_child)
 
     def _add_node(self, node):
+        """Add a new node."""
         self._heap.append(node)
         self._size += 1
 
     def _remove_node(self):
+        """Remove the top node."""
         self._heap[0] = self._heap[self.get_heap_size() - 1]
         self._heap.pop()
         self._size -= 1
 
     def create_heap(self, input_heap):
+        """Initializes the heap."""
         self._heap = input_heap
         self._size = len(input_heap)
 
@@ -61,11 +64,13 @@ class Heap:
         return self._size if self._size >= 0 else 0
 
     def insert(self, node):
+        """Adds a new element to the heap."""
         self._add_node(node)
         self._heap_up(self.get_heap_size() - 1)
         self._heap_down(0)
 
     def pop(self):
+        """Removes top element from the heap."""
         self._remove_node()
         self._heap_down(0)
 
