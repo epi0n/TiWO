@@ -71,6 +71,14 @@ class Heap:
 
     def pop(self):
         """Removes top element from the heap."""
-        self._remove_node()
-        self._heap_down(0)
+        if self.get_heap_size() > 0:
+            self._remove_node()
+            self._heap_down(0)
+
+    def print_heap(self):
+        print(f'''\
+        Heap size: {self.get_heap_size()}
+        Heap structure: {self._heap}
+        ''')
+
 
