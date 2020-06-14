@@ -46,6 +46,11 @@ heap_test_insert = Heap()
 heap_test_insert.create_heap([5, 4, 3, 2, 1])
 expected_heap_test_insert = Heap()
 expected_heap_test_insert.create_heap([6, 4, 5, 2, 1, 3])
+
+heap_test_pop = Heap()
+heap_test_pop.create_heap([6, 4, 5, 2, 1, 3])
+expected_heap_test_pop = Heap()
+expected_heap_test_pop.create_heap([5, 4, 3, 2, 1])
 """
 /TEST DATA
 """
@@ -97,7 +102,10 @@ def test_insert(input_heap, expected_heap, example_index):
     input_heap.insert(6)
     assert input_heap == expected_heap
 
-'''
-def test_pop():
-    raise NotImplementedError
-'''
+
+@pytest.mark.parametrize("input_heap,expected_heap,example_index", [
+    (heap_test_pop, expected_heap_test_pop,  0),
+])
+def test_pop(input_heap, expected_heap, example_index):
+    input_heap.pop()
+    assert input_heap == expected_heap
