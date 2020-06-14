@@ -52,7 +52,10 @@ class Heap:
         return self._size if self._size >= 0 else 0
 
     def insert(self, node):
-        raise NotImplementedError
+        self._heap.append(node)
+        self._size += 1
+        self._heap_up(self.get_heap_size() - 1)
+        self._heap_down(0)
 
     def pop(self):
         raise NotImplementedError
