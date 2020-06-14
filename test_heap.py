@@ -41,6 +41,11 @@ heap_test_heap_down = Heap()
 heap_test_heap_down.create_heap([1, 2, 3, 4, 5])
 expected_heap_test_heap_down = Heap()
 expected_heap_test_heap_down.create_heap([3, 2, 1, 4, 5])
+
+heap_test_insert = Heap()
+heap_test_insert.create_heap([5, 4, 3, 2, 1])
+expected_heap_test_insert = Heap()
+expected_heap_test_insert.create_heap([6, 4, 5, 2, 1, 3])
 """
 /TEST DATA
 """
@@ -85,11 +90,14 @@ def test_heap_down(input_heap, expected_heap, example_index):
     assert input_heap == expected_heap
 
 
+@pytest.mark.parametrize("input_heap,expected_heap,example_index", [
+    (heap_test_insert, expected_heap_test_insert,  0),
+])
+def test_insert(input_heap, expected_heap, example_index):
+    input_heap.insert(6)
+    assert input_heap == expected_heap
+
 '''
-def test_insert():
-    raise NotImplementedError
-
-
 def test_pop():
     raise NotImplementedError
 '''

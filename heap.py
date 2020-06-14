@@ -51,7 +51,7 @@ class Heap:
         """Returns heap size."""
         return self._size if self._size >= 0 else 0
 
-    def insert(self):
+    def insert(self, node):
         raise NotImplementedError
 
     def pop(self):
