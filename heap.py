@@ -23,7 +23,21 @@ class Heap:
 
     def _heap_down(self, i):
         """Move node down if worse than child node."""
-        raise NotImplementedError
+        if i < self.get_heap_size():
+            left_child, right_child = (i * 2) + 1, (i * 2) + 2
+            if left_child < self.get_heap_size() or right_child < self.get_heap_size():
+                if right_child < self.get_heap_size():
+                    if any([self._heap[i] < self._heap[left_child], self._heap[i] < self._heap[right_child]]):
+                        if self._heap[left_child] > self._heap[right_child]:
+                            self._swap(i, left_child)
+                            self._heap_down(left_child)
+                        else:
+                            self._swap(i, right_child)
+                            self._heap_down(right_child)
+                elif left_child < self.get_heap_size():
+                    if self._heap[i] < self._heap[left_child]:
+                        self._swap(i, left_child)
+                        self._heap_down(left_child)
 
     def create_heap(self, input_heap):
         self._heap = input_heap
