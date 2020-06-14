@@ -15,7 +15,11 @@ class Heap:
 
     def _heap_up(self, i):
         """Move node up if better than parent node."""
-        raise NotImplementedError
+        if i > 0:
+            parent_index = int((i - 1) / 2)
+            if self._heap[i] > self._heap[parent_index]:
+                self._swap(i, parent_index)
+            self._heap_up(parent_index)
 
     def _heap_down(self, i):
         """Move node down if worse than child node."""
