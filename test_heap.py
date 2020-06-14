@@ -2,6 +2,9 @@ import pytest
 
 from heap import Heap
 
+"""
+TEST DATA
+"""
 tmp_heap_1 = Heap()
 tmp_heap_1._heap = [5, 2, 12, 4]
 tmp_heap_2 = Heap()
@@ -34,6 +37,14 @@ heap_test_heap_up.create_heap([1, 2, 3, 4, 5])
 expected_heap_test_heap_up = Heap()
 expected_heap_test_heap_up.create_heap([5, 1, 3, 4, 2])
 
+heap_test_heap_down = Heap()
+heap_test_heap_down.create_heap([1, 2, 3, 4, 5])
+expected_heap_test_heap_down = Heap()
+expected_heap_test_heap_down.create_heap([3, 2, 1, 4, 5])
+"""
+/TEST DATA
+"""
+
 
 @pytest.mark.parametrize("input_heap,i,j,expected_heap", [
     (test_swap_data[0]['input_heap'], test_swap_data[0]['i'], test_swap_data[0]['j'], test_swap_data[0]['expected_heap']),
@@ -65,11 +76,16 @@ def test_heap_up(input_heap, expected_heap, example_index):
     input_heap._heap_up(example_index)
     assert input_heap == expected_heap
 
+
+@pytest.mark.parametrize("input_heap,expected_heap,example_index", [
+    (heap_test_heap_down, expected_heap_test_heap_down,  0),
+])
+def test_heap_down(input_heap, expected_heap, example_index):
+    input_heap._heap_down(example_index)
+    assert input_heap == expected_heap
+
+
 '''
-def test_heap_down():
-    raise NotImplementedError
-
-
 def test_insert():
     raise NotImplementedError
 
