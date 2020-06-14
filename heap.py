@@ -13,12 +13,12 @@ class Heap:
         self._heap[i] = self._heap[j]
         self._heap[j] = tmp
 
-    def _heap_up(self, i):
+    def _heap_up(self, current_index):
         """Move node up if better than parent node."""
-        if i > 0:
-            parent_index = int((i - 1) / 2)
-            if self._heap[i] > self._heap[parent_index]:
-                self._swap(i, parent_index)
+        if current_index > 0:
+            parent_index = int((current_index - 1) / 2)
+            if self._heap[current_index] > self._heap[parent_index]:
+                self._swap(current_index, parent_index)
             self._heap_up(parent_index)
 
     def _heap_down(self, i):
